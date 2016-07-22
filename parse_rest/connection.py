@@ -111,7 +111,7 @@ class ParseBase(object):
         if http_verb == 'GET' and data:
             url += '?%s' % urlencode(kw)
             data = None
-        else:
+        elif extra_headers is None or 'Content-type' not in extra_headers:
             data = data.encode('utf-8')
 
         headers = {
