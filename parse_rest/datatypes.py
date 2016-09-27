@@ -491,4 +491,4 @@ class Object(six.with_metaclass(ObjectMetaclass, ParseResource)):
                 }
             }
         self.__class__.PUT(self._absolute_url, **payload)
-        self.__dict__[key] = ''
+        self.__dict__[key] = None

@@ -139,7 +139,7 @@ class User(ParseResource):
                 }
             }
         self.__class__.PUT(self._absolute_url, **payload)
-        self.__dict__[key] = ''
+        self.__dict__[key] = None
 
 
 User.Query = QueryManager(User)
