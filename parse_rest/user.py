@@ -141,5 +141,18 @@ class User(ParseResource):
         self.__class__.PUT(self._absolute_url, **payload)
         self.__dict__[key] = None
 
+    def remove(self, key):
+        """
+        Clear a column value in the object. Note that this happens immediately:
+        it does not wait for save() to be called.
+        """
+        payload = {
+            key: {
+                '__op': 'Delete'
+            }
+        }
+        self.__class__.PUT(self._absolute_url, **payload)
+        del self.__dict__[key]
+
 
 User.Query = QueryManager(User)
